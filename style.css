@@ -3,14 +3,15 @@
 }
 
 #controls i{
-    font-size: 3rem;
+    font-size: 2rem;
     color: purple;
-    margin-right: 2rem;
+    margin-right: 1rem;
 }
 #progress{
     margin-bottom: 20px;
 }
-#progress .times{
+#progress .times,
+#controls{
     display: flex;
     justify-content: space-between;
     align-items: center;
