@@ -16,7 +16,7 @@ window.addEventListener('load', () => {
     displayMusic(music);
 })
 
-function displayMusic(music){
+const displayMusic = (music) => {
     title.innerHTML = music.getName();
     singer.innerHTML = music.singer;
     image.src = `img/${music.img}`;
@@ -28,36 +28,32 @@ play.addEventListener('click', () => {
     isMusicPlay ? pauseMusic() : playMusic();
 })
 
-prev.addEventListener('click', () => {
-    prevMusic();
-})
+prev.addEventListener('click', () => {prevMusic()})
 
-next.addEventListener('click', () => {
-    nextMusic();
-})
+next.addEventListener('click', () => {nextMusic()})
 
 
-function prevMusic(){
+const prevMusic = () =>{
     player.prev();
     let music = player.getMusic();
     displayMusic(music);
     audio.play();
 }
 
-function nextMusic(){
+const nextMusic = () => {
     player.next();
     let music = player.getMusic();
     displayMusic(music);
     audio.play();
 }
 
-function pauseMusic(){
+const pauseMusic = () => {
     container.classList.remove('playing');
     play.classList = "fa-solid fa-play";
     audio.pause();
 }
 
-function playMusic(){
+const playMusic = () => {
     container.classList.add('playing');
     play.classList = "fa-solid fa-pause"
     audio.play();
@@ -81,3 +77,8 @@ audio.addEventListener('timeupdate', () => {
   currentTime.textContent = calculateTime(audio.currentTime);
 })
 
+progressBar.addEventListener('input', () => {
+    currentTime.textContent = calculateTime(progressBar.value);
+    audio.currentTime = progressBar.value
+
+})
