@@ -1,17 +1,27 @@
+const container = document.querySelector('.container');
+const image = document.querySelector('#music-image');
+const title = document.querySelector('#music-details .title');
+const singer = document.querySelector('#music-details .singer');
+const prev = document.querySelector('#controls #prev');
+const play = document.querySelector('#controls #play');
+const next = document.querySelector('#controls #next');
+
 const player = new MusicPlayer(musicList);
 
-let music = player.getMusic()
-console.log(music.getName());
+window.addEventListener('load', () => {
+    let music = player.getMusic();
+    displayMusic(music);
+})
 
-player.next();
-music = player.getMusic()
-console.log(music.getName())
+function displayMusic(music){
+    title.innerHTML = music.getName();
+    singer.innerHTML = music.singer;
+    image.src = `img/${music.img}`;
+    audio.src = `mp3/${music.file}`;
+}
 
-player.next();
-music = player.getMusic()
-console.log(music.getName());
+play.addEventListener('click', () => {
+    audio.play();
+})
 
 
-player.previous();
-music = player.getMusic()
-console.log(music.getName());

@@ -11,7 +11,7 @@ class Music{
 }
 
 const musicList = [
-    new Music('Boşver', 'Nilüfer', '1.jpg', '1.mp3'),
-    new Music('Buda Geçer', 'Yalın', '2.jpg', '2.mp3'),
-    new Music('Aramızda Uçurumlar', 'Suat Suna', '3.jpg', '3.mp3'),
+    new Music('Boşver', 'Nilüfer', '1.jpeg', '1.mp3'),
+    new Music('Buda Geçer', 'Yalın', '2.jpeg', '2.mp3'),
+    new Music('Aramızda Uçurumlar', 'Suat Suna', '3.jpeg', '3.mp3'),
 ]
