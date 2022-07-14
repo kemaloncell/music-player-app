@@ -5,6 +5,9 @@ const singer = document.querySelector('#music-details .singer');
 const prev = document.querySelector('#controls #prev');
 const play = document.querySelector('#controls #play');
 const next = document.querySelector('#controls #next');
+const currentTime = document.querySelector('#current-time');
+const duration = document.querySelector('#duration');
+const progressBar = document.querySelector('#progress-bar');
 
 const player = new MusicPlayer(musicList);
 
@@ -59,3 +62,22 @@ function playMusic(){
     play.classList = "fa-solid fa-pause"
     audio.play();
 }
+
+calculateTime = (seconds) => {
+    const munite = Math.floor(seconds / 60); // exp: 180 second / 60 second  = 3 munite
+    const second = Math.floor(seconds % 60 ); // exp: 190 second / 60 second = 3 remainder = 10 => remainder of second
+    const result = `${munite}:${second < 10 ? '0' : ''}${second}`;
+    return result;
+
+}
+
+audio.addEventListener('loadedmetadata', () => {
+    duration.textContent = calculateTime(audio.duration);
+    progressBar.max = Math.floor(audio.duration);
+})
+
+audio.addEventListener('timeupdate', () => {
+  progressBar.value = Math.floor(audio.currentTime);
+  currentTime.textContent = calculateTime(audio.currentTime);
+})
+
