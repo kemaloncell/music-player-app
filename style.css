@@ -17,3 +17,8 @@ body{
 .volume-container i {
     margin-right: .5rem;
 }
+
+li.playing {
+    background-color: #0b5eb7;
+    color: #fff;
+}
